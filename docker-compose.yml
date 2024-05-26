@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  pysocket:
+    build:
+      context: .
+    image: pysocketimg
+    user: root
+    container_name: pysocketapp
+    # command: npm run dev
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    restart: unless-stopped
+    ports:
+     - 5000:5000
