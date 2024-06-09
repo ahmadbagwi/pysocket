@@ -2,14 +2,18 @@ version: '3.0'
 services:
   pysocket:
     build:
+      args:
+        user: ahmad
+        uid: 1000
       context: .
+      dockerfile: Dockerfile
     image: pysocketimg
-    user: root
+    # user: root
     container_name: pysocketapp
     # command: npm run dev
     volumes:
-      - .:/usr/src/app
-    working_dir: /usr/src/app
+      - .:/usr/src/app/vol
+    # working_dir: /usr/src/app
     restart: unless-stopped
     ports:
      - 5000:5000
